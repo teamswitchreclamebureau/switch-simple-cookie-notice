@@ -1,1 +1,1 @@
-# WebSquad-cookie
+# WebSquad-cookies
