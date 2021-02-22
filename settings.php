@@ -19,7 +19,7 @@ class WebSquadCookiesSettings {
 			'manage_options', // capability
 			'websquad-cookies-settings', // menu_slug
 			array( $this, 'websquad_cookies_settings_create_admin_page' ), // function
-			'dashicons-admin-generic', // icon_url
+            plugins_url( 'WebSquad-cookie/icon.png' ), // icon_url
 			80 // position
 		);
 	}
