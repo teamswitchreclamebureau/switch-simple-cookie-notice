@@ -7,9 +7,9 @@
  /**
 
 	Plugin name: Switch - Simple Cookie Notice
-	Plugin URI: https://switchreclamebureau.nl/
+	Plugin URI: https://github.com/RLKevin/switch-simple-cookie-notice
 	Description: Simple cookie notice plugin for Wordpress, made by Switch Reclamebureau
-	Version: 0.0.1
+	Version: 0.1.0
 	Author: Switch Reclamebureau
 	Author URI: https://switchreclamebureau.nl/
 
@@ -40,7 +40,7 @@ class SwitchCookies {
 	}
 
 	function activate() {
-		echo "Thank you for using Switch - Simple Cookie Notice.";
+		// echo "Thank you for using Switch - Simple Cookie Notice.";
 	}
 
 	function deactivate() {

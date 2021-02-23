@@ -19,7 +19,8 @@ class WebSquadCookiesSettings {
 			'manage_options', // capability
 			'websquad-cookies-settings', // menu_slug
 			array( $this, 'websquad_cookies_settings_create_admin_page' ), // function
-            plugins_url( 'WebSquad-cookie/icon.png' ), // icon_url
+			'dashicons-palmtree',
+            // plugins_url( 'switch-simple-cookie-notice/icon.png' ), // icon_url
 			80 // position
 		);
 	}
@@ -28,8 +29,8 @@ class WebSquadCookiesSettings {
 		$this->websquad_cookies_settings_options = get_option( 'websquad_cookies_settings_option_name' ); ?>
 
 		<div class="wrap">
-			<h2>WebSquad Cookies Settings</h2>
-			<p>Settings for the WebSquad Cookies plugin</p>
+			<h2>Switch - Simple Cookie Notice Settings</h2>
+			<p>Settings for Switch - Simple Cookie Notice</p>
 			<?php settings_errors(); ?>
 
 			<form method="post" action="options.php">
