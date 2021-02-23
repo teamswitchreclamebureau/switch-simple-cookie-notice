@@ -9,8 +9,8 @@ Author:            Switch Reclamebureau
 Donate link:       https://switchreclamebureau.nl/contact/
 Requires at least: 5.0.0
 Tested up to:      5.6.2
-Stable tag:        0.1.0
-Version:           0.1.0
+Stable tag:        0.1.1
+Version:           0.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,6 +25,9 @@ Simple cookie notice plugin, adds a little bit of html to the footer that can be
 == Screenshots ==
 
 == Changelog ==
+
+### 0.1.1
+added licence
 
 ### 0.1.0
 initial release
