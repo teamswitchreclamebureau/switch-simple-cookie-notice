@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @package WebSquad Cookies
+ * @package Switch - Simple Cookie Notice
  */
 
  /**
 
-	Plugin name: WebSquad Cookies
-	Plugin URI: https://websquad.nl/
-	Description: Cookie notice for WebSquad websites
+	Plugin name: Switch - Simple Cookie Notice
+	Plugin URI: https://switchreclamebureau.nl/
+	Description: Simple cookie notice plugin for Wordpress, made by Switch Reclamebureau
 	Version: 0.0.1
 	Author: Switch Reclamebureau
 	Author URI: https://switchreclamebureau.nl/
@@ -19,7 +19,7 @@ if (!defined('ABSPATH')) {
 	die;
 }
 
-class WebsquadCookies {
+class SwitchCookies {
 	
 	function __construct() {
 		@require_once 'settings.php';
@@ -34,13 +34,13 @@ class WebsquadCookies {
 		add_action( 'wp_footer', 'addToFooter', 100 );
 
 		function my_custom_script_load(){
-			wp_enqueue_script( 'websquad-cookies-script', plugin_dir_url( __FILE__ ) . '/websquad-cookies.js', array( 'jquery' ) );
+			wp_enqueue_script( 'websquad-cookies-script', plugin_dir_url( __FILE__ ) . '/switch-cookies.js', array( 'jquery' ) );
 		}
 		add_action( 'wp_enqueue_scripts', 'my_custom_script_load' );
 	}
 
 	function activate() {
-		echo "Thank you for using WebSquad Cookies.";
+		echo "Thank you for using Switch - Simple Cookie Notice.";
 	}
 
 	function deactivate() {
@@ -53,12 +53,12 @@ class WebsquadCookies {
 }
 
 // initialize plugin
-if (class_exists('WebsquadCookies')) {
-	$websquadCookies = new WebsquadCookies();
+if (class_exists('SwitchCookies')) {
+	$switchCookies = new SwitchCookies();
 }
 
 // activate hook
-register_activation_hook( __FILE__, array( $websquadCookies , 'activate' ) );
+register_activation_hook( __FILE__, array( $switchCookies , 'activate' ) );
 
 // deactivate hook
-register_deactivation_hook( __FILE__, array( $websquadCookies , 'deactivate' ) );
+register_deactivation_hook( __FILE__, array( $switchCookies , 'deactivate' ) );

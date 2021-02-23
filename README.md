@@ -1,1 +1,1 @@
-# WebSquad-cookies
+# Switch - Simple Cookie Notice

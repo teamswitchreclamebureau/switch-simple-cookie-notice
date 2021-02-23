@@ -14,8 +14,8 @@ class WebSquadCookiesSettings {
 
 	public function websquad_cookies_settings_add_plugin_page() {
 		add_menu_page(
-			'WebSquad Cookies Settings', // page_title
-			'WebSquad Cookies', // menu_title
+			'Switch - Simple Cookie Notice Settings', // page_title
+			'Cookie Notice', // menu_title
 			'manage_options', // capability
 			'websquad-cookies-settings', // menu_slug
 			array( $this, 'websquad_cookies_settings_create_admin_page' ), // function
