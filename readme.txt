@@ -18,12 +18,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Simple cookie notice plugin, adds a little bit of html to the footer that can be styled as a cookie banner.
 
-== Installation ==
-
-== Upgrade Notice ==
-
-== Screenshots ==
-
 == Changelog ==
 
 ### 0.1.1
@@ -31,7 +25,3 @@ added licence
 
 ### 0.1.0
 initial release
-
-== Frequently Asked Questions ==
-
-== Donations ==
