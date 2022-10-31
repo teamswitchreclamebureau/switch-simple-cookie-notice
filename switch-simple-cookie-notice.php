@@ -34,7 +34,7 @@ class SwitchCookies {
 			$optional_cookie_url = $websquad_cookies_settings_options['button_url_5'];
 
 			if ($optional_cookie_button_text) {
-				echo '<div class="switchcookie disabled"><p>'.$cookie_text.'</p><a class="'.$optional_cookie_button_classes.'" id="switchcookiebutton" href="'.$optional_cookie_url.'" target="_blank">'.$optional_cookie_button_text.'</a><a class="button '.$cookie_button_classes.'" id="switchcookiebutton">'.$cookie_button_text.'</a></div>';
+				echo '<div class="switchcookie disabled"><p>'.$cookie_text.'</p><a class="'.$optional_cookie_button_classes.'" href="'.$optional_cookie_url.'" target="_blank">'.$optional_cookie_button_text.'</a><a class="button '.$cookie_button_classes.'" id="switchcookiebutton">'.$cookie_button_text.'</a></div>';
 			} else {
 				echo '<div class="switchcookie disabled"><p>'.$cookie_text.'</p><a class="button '.$cookie_button_classes.'" id="switchcookiebutton">'.$cookie_button_text.'</a></div>';
 			}
