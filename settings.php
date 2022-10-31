@@ -86,6 +86,7 @@ class WebSquadCookiesSettings {
 		$sanitary_values = array();
 		if ( isset( $input['cookie_text_0'] ) ) {
 			$sanitary_values['cookie_text_0'] = esc_textarea( $input['cookie_text_0'] );
+			$sanitary_values['cookie_text_0'] = $input['cookie_text_0'];
 		}
 
 		if ( isset( $input['button_text_1'] ) ) {
