@@ -29,7 +29,16 @@ class SwitchCookies {
 			$cookie_text = $websquad_cookies_settings_options['cookie_text_0'];
 			$cookie_button_text = $websquad_cookies_settings_options['button_text_1'];
 			$cookie_button_classes = $websquad_cookies_settings_options['button_classes_2'];
-			echo '<div class="switchcookie disabled"><p>'.$cookie_text.'</p><a class="button '.$cookie_button_classes.'" id="switchcookiebutton">'.$cookie_button_text.'</a></div>';
+			$optional_cookie_button_text = $websquad_cookies_settings_options['button_text_3'];
+			$optional_cookie_button_classes = $websquad_cookies_settings_options['button_classes_4'];
+			$optional_cookie_url = $websquad_cookies_settings_options['button_url_5'];
+
+			if ($optional_cookie_button_text) {
+				echo '<div class="switchcookie disabled"><p>'.$cookie_text.'</p><a class="'.$optional_cookie_button_classes.'" id="switchcookiebutton" href="'.$optional_cookie_url.'" target="_blank">'.$optional_cookie_button_text.'</a><a class="button '.$cookie_button_classes.'" id="switchcookiebutton">'.$cookie_button_text.'</a></div>';
+			} else {
+				echo '<div class="switchcookie disabled"><p>'.$cookie_text.'</p><a class="button '.$cookie_button_classes.'" id="switchcookiebutton">'.$cookie_button_text.'</a></div>';
+			}
+
 		}
 		add_action( 'wp_footer', 'addToFooter', 100 );
 

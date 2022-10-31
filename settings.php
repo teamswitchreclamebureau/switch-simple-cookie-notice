@@ -80,6 +80,30 @@ class WebSquadCookiesSettings {
 			'websquad-cookies-settings-admin', // page
 			'websquad_cookies_settings_setting_section' // section
 		);
+		
+		add_settings_field(
+			'button_text_3', // id
+			'Optional button text', // title
+			array( $this, 'button_text_3_callback' ), // callback
+			'websquad-cookies-settings-admin', // page
+			'websquad_cookies_settings_setting_section' // section
+		);
+		
+		add_settings_field(
+			'button_classes_4', // id
+			'Optional button classes', // title
+			array( $this, 'button_classes_4_callback' ), // callback
+			'websquad-cookies-settings-admin', // page
+			'websquad_cookies_settings_setting_section' // section
+		);
+
+		add_settings_field(
+			'button_url_5', // id
+			'Optional button link', // title
+			array( $this, 'button_url_5_callback' ), // callback
+			'websquad-cookies-settings-admin', // page
+			'websquad_cookies_settings_setting_section' // section
+		);
 	}
 
 	public function websquad_cookies_settings_sanitize($input) {
@@ -95,6 +119,17 @@ class WebSquadCookiesSettings {
 
 		if ( isset( $input['button_classes_2'] ) ) {
 			$sanitary_values['button_classes_2'] = sanitize_text_field( $input['button_classes_2'] );
+		}
+
+		if ( isset( $input['button_text_3'] ) ) {
+			$sanitary_values['button_text_3'] = sanitize_text_field( $input['button_text_3'] );
+		}
+
+		if ( isset( $input['button_classes_4'] ) ) {
+			$sanitary_values['button_classes_4'] = sanitize_text_field( $input['button_classes_4'] );
+		}
+		if ( isset( $input['button_url_5'] ) ) {
+			$sanitary_values['button_url_5'] = esc_url_raw( $input['button_url_5'] );
 		}
 
 		return $sanitary_values;
@@ -125,6 +160,27 @@ class WebSquadCookiesSettings {
 		);
 	}
 
+	public function button_text_3_callback() {
+		printf(
+			'<input class="regular-text" type="text" name="websquad_cookies_settings_option_name[button_text_3]" id="button_text_3" value="%s">',
+			isset( $this->websquad_cookies_settings_options['button_text_3'] ) ? esc_attr( $this->websquad_cookies_settings_options['button_text_3']) : ''
+		);
+	}
+
+	public function button_classes_4_callback() {
+		printf(
+			'<input class="regular-text" type="text" name="websquad_cookies_settings_option_name[button_classes_4]" id="button_classes_4" value="%s">',
+			isset( $this->websquad_cookies_settings_options['button_classes_4'] ) ? esc_attr( $this->websquad_cookies_settings_options['button_classes_4']) : ''
+		);
+	}
+
+	public function button_url_5_callback() {
+		printf(
+			'<input class="regular-text" type="text" name="websquad_cookies_settings_option_name[button_url_5]" id="button_url_5" value="%s">',
+			isset( $this->websquad_cookies_settings_options['button_url_5'] ) ? esc_attr( $this->websquad_cookies_settings_options['button_url_5']) : ''
+		);
+	}
+
 }
 if ( is_admin() )
 	$websquad_cookies_settings = new WebSquadCookiesSettings();
@@ -135,4 +191,6 @@ if ( is_admin() )
  * $cookie_text_0 = $websquad_cookies_settings_options['cookie_text_0']; // Cookie text
  * $button_text_1 = $websquad_cookies_settings_options['button_text_1']; // Button text
  * $button_classes_2 = $websquad_cookies_settings_options['button_classes_2']; // Button classes
+ * $button_text_3 = $websquad_cookies_settings_options['button_text_3']; // Button text
+ * $button_classes_4 = $websquad_cookies_settings_options['button_classes_4']; // Button classes
  */
