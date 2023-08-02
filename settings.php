@@ -4,6 +4,8 @@
  * at http://jeremyhixon.com/wp-tools/option-page/
  */
 
+define( 'WEBSQUAD_COOKIES_TEXT_DOMAIN', 'websquad-cookies' );
+
 class WebSquadCookiesSettings {
 	private $websquad_cookies_settings_options;
 
@@ -111,10 +113,16 @@ class WebSquadCookiesSettings {
 		if ( isset( $input['cookie_text_0'] ) ) {
 			$sanitary_values['cookie_text_0'] = esc_textarea( $input['cookie_text_0'] );
 			$sanitary_values['cookie_text_0'] = $input['cookie_text_0'];
+
+			// Store the value in WPML String Translation
+			icl_register_string( WEBSQUAD_COOKIES_TEXT_DOMAIN, 'Cookie Text 0', $sanitary_values['cookie_text_0'] );
 		}
 
 		if ( isset( $input['button_text_1'] ) ) {
 			$sanitary_values['button_text_1'] = sanitize_text_field( $input['button_text_1'] );
+
+			// Store the value in WPML String Translation
+			icl_register_string( WEBSQUAD_COOKIES_TEXT_DOMAIN, 'Button Text 1', $sanitary_values['button_text_1'] );
 		}
 
 		if ( isset( $input['button_classes_2'] ) ) {
@@ -123,6 +131,9 @@ class WebSquadCookiesSettings {
 
 		if ( isset( $input['button_text_3'] ) ) {
 			$sanitary_values['button_text_3'] = sanitize_text_field( $input['button_text_3'] );
+
+			// Store the value in WPML String Translation
+			icl_register_string( WEBSQUAD_COOKIES_TEXT_DOMAIN, 'Button Text 3', $sanitary_values['button_text_3'] );
 		}
 
 		if ( isset( $input['button_classes_4'] ) ) {
@@ -140,16 +151,20 @@ class WebSquadCookiesSettings {
 	}
 
 	public function cookie_text_0_callback() {
+		$translated_value = icl_t( WEBSQUAD_COOKIES_TEXT_DOMAIN, 'Cookie Text 0', $this->websquad_cookies_settings_options['cookie_text_0'] );
+
 		printf(
 			'<textarea class="large-text" rows="5" name="websquad_cookies_settings_option_name[cookie_text_0]" id="cookie_text_0">%s</textarea>',
-			isset( $this->websquad_cookies_settings_options['cookie_text_0'] ) ? esc_attr( $this->websquad_cookies_settings_options['cookie_text_0']) : ''
+			$translated_value
 		);
 	}
 
 	public function button_text_1_callback() {
+		$translated_value = icl_t( WEBSQUAD_COOKIES_TEXT_DOMAIN, 'Button Text 1', $this->websquad_cookies_settings_options['button_text_1'] );
+
 		printf(
 			'<input class="regular-text" type="text" name="websquad_cookies_settings_option_name[button_text_1]" id="button_text_1" value="%s">',
-			isset( $this->websquad_cookies_settings_options['button_text_1'] ) ? esc_attr( $this->websquad_cookies_settings_options['button_text_1']) : ''
+			$translated_value
 		);
 	}
 
@@ -161,9 +176,11 @@ class WebSquadCookiesSettings {
 	}
 
 	public function button_text_3_callback() {
+		$translated_value = icl_t( WEBSQUAD_COOKIES_TEXT_DOMAIN, 'Button Text 3', $this->websquad_cookies_settings_options['button_text_3'] );
+		
 		printf(
 			'<input class="regular-text" type="text" name="websquad_cookies_settings_option_name[button_text_3]" id="button_text_3" value="%s">',
-			isset( $this->websquad_cookies_settings_options['button_text_3'] ) ? esc_attr( $this->websquad_cookies_settings_options['button_text_3']) : ''
+			$translated_value
 		);
 	}
 
