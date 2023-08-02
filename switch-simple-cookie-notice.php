@@ -9,7 +9,7 @@
 	Plugin name: Switch - Simple Cookie Notice
 	Plugin URI: https://github.com/RLKevin/switch-simple-cookie-notice
 	Description: Simple cookie notice plugin for Wordpress, made by Team Switch Reclamebureau
-	Version: 0.2
+	Version: 0.3.0
 	Author: Kevin van Nieukerke
 	Author URI: https://kevinvn.nl/
 
