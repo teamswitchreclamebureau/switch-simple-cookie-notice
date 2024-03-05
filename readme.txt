@@ -8,9 +8,9 @@ Author URI:        https://teamswitch.nl/
 Author:            Team Switch Reclamebureau
 Donate link:       https://teamswitch.nl/contact/
 Requires at least: 5.0.0
-Tested up to:      6.0.3
-Stable tag:        0.2.1
-Version:           0.2.1
+Tested up to:      6.4.3
+Stable tag:        0.3
+Version:           0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,6 +19,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Simple cookie notice plugin, adds a little bit of html to the footer that can be styled as a cookie banner.
 
 == Changelog ==
+
+### 0.3.0
+added WPML support
 
 ### 0.2.1
 fixed js bug
