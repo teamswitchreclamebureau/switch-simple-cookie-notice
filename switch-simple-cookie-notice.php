@@ -9,9 +9,9 @@
 	Plugin name: Switch - Simple Cookie Notice
 	Plugin URI: https://github.com/RLKevin/switch-simple-cookie-notice
 	Description: Simple cookie notice plugin for Wordpress, made by Team Switch Reclamebureau
-	Version: 0.3.1
-	Author: Kevin van Nieukerke
-	Author URI: https://kevinvn.nl/
+	Version: 0.4
+	Author: Team Switch
+	Author URI: https://teamswitch.nl/
 
   */
   define( 'WEBSQUAD_COOKIES_TEXT_DOMAIN', 'websquad-cookies' );
@@ -27,41 +27,94 @@ class SwitchCookies {
 
 		function addToFooter() {
 			$websquad_cookies_settings_options = get_option( 'websquad_cookies_settings_option_name' );
-			$cookie_text = $websquad_cookies_settings_options['cookie_text_0'];
-			if (function_exists('icl_t')) {
-				$translated_cookie_text = icl_t( WEBSQUAD_COOKIES_TEXT_DOMAIN, 'Cookie Text 0', $websquad_cookies_settings_options['cookie_text_0'] );
-			} else {
-				$translated_cookie_text = $cookie_text;
-			}
-			$cookie_button_text = $websquad_cookies_settings_options['button_text_1'];
-			if (function_exists('icl_t')) {
-				$translated_cookie_button_text = icl_t( WEBSQUAD_COOKIES_TEXT_DOMAIN, 'Button Text 1', $websquad_cookies_settings_options['button_text_1'] );
-			} else {
-				$translated_cookie_button_text = $cookie_button_text;
-			}
-			$cookie_button_classes = $websquad_cookies_settings_options['button_classes_2'];
-			$optional_cookie_button_text = $websquad_cookies_settings_options['button_text_3'];
-			if (function_exists('icl_t')) {
-				$translated_optional_cookie_button_text = icl_t( WEBSQUAD_COOKIES_TEXT_DOMAIN, 'Button Text 3', $websquad_cookies_settings_options['button_text_3'] );
-			} else {
-				$translated_optional_cookie_button_text = $optional_cookie_button_text;
-			}
-			$optional_cookie_button_classes = $websquad_cookies_settings_options['button_classes_4'];
-			$optional_cookie_url = $websquad_cookies_settings_options['button_url_5'];
 
-			if ($optional_cookie_button_text) {
-				echo '<div class="switchcookie disabled"><p>'.$translated_cookie_text.'</p><a class="'.$optional_cookie_button_classes.'" href="'.$optional_cookie_url.'" target="_blank">'.$translated_optional_cookie_button_text.'</a><a class="button '.$cookie_button_classes.'" id="switchcookiebutton">'.$translated_cookie_button_text.'</a></div>';
+			if (function_exists('icl_t')) {
+				$cookie_title = icl_t( WEBSQUAD_COOKIES_TEXT_DOMAIN, 'Cookie Title 0', $websquad_cookies_settings_options['cookie_title_0'] );
+				$cookie_text = icl_t( WEBSQUAD_COOKIES_TEXT_DOMAIN, 'Cookie Text 0', $websquad_cookies_settings_options['cookie_text_0'] );
+				$cookie_button_1 = icl_t( WEBSQUAD_COOKIES_TEXT_DOMAIN, 'Button Text 1', $websquad_cookies_settings_options['button_text_1'] );
+				$cookie_button_2 = icl_t( WEBSQUAD_COOKIES_TEXT_DOMAIN, 'Button Text 2', $websquad_cookies_settings_options['button_text_2'] );
+				// $cookie_button_3 = icl_t( WEBSQUAD_COOKIES_TEXT_DOMAIN, 'Button Text 3', $websquad_cookies_settings_options['button_text_3'] );
 			} else {
-				echo '<div class="switchcookie disabled"><p>'.$translated_cookie_text.'</p><a class="button '.$cookie_button_classes.'" id="switchcookiebutton">'.$translated_cookie_button_text.'</a></div>';
+				$cookie_title = $websquad_cookies_settings_options['cookie_title_0'];
+				$cookie_text = $websquad_cookies_settings_options['cookie_text_0'];
+				$cookie_button_1 = $websquad_cookies_settings_options['button_text_1'];
+				$cookie_button_2 = $websquad_cookies_settings_options['button_text_2'];
+				// $cookie_button_3 = $websquad_cookies_settings_options['button_text_3'];
 			}
 
+			echo '
+			<div class="cookie-notice disabled">
+				<img src="' . plugin_dir_url( __FILE__ ) . '/cookie.svg" alt="">
+				<div>
+					<p>
+						<strong>'. $cookie_title . '</strong>
+					</p>
+					<p>'. $cookie_text . '</p>
+				</div>
+				<div class="cookie-buttons">
+					<button id="cookiebuttonAccept" class="button accepted">'. $cookie_button_1 . '</button>
+					<button id="cookiebuttonDecline" class="button declined">'. $cookie_button_2 . '</button>
+					<span>Powerd by <a href="https://teamswitch.nl" target="_blank">Team Switch</a>.</span>
+				</div>
+			</div>
+			';
 		}
-		add_action( 'wp_footer', 'addToFooter', 100 );
+		add_action('wp_footer', 'addToFooter', 10);
+
+
+		function addToHead(){
+			echo '
+			<script>
+				console.log("Switch - Simple Cookie Notice is active");
+
+				// Set up Google Analytics gtag
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+
+				function getCookie(name) {
+					var nameEQ = name + "=";
+					var ca = document.cookie.split(";");
+					for (var i = 0; i < ca.length; i++) {
+						var c = ca[i];
+						while (c.charAt(0) === " ") c = c.substring(1, c.length);
+						if (c.indexOf(nameEQ) === 0)
+							return c.substring(nameEQ.length, c.length);
+					}
+					return null;
+				}
+
+				if (getCookie("cookies-ok")) {
+					var consent = "granted";
+				}else{
+					var consent = "denied";
+				}
+
+				// Set default consent to "denied" as a placeholder
+				// Determine actual values based on your own requirements
+				gtag("consent", "default", {
+					"ad_storage": consent,
+					"ad_user_data": consent,
+					"ad_personalization": consent,
+					"analytics_storage": consent,
+					"functionality_storage": consent,
+					"personalization_storage": consent,
+					"security_storage": consent
+				});
+			</script>
+			<link rel="stylesheet" href="' . plugin_dir_url( __FILE__ ) . '/style.css" type="text/css">
+			';
+		}
+
+		// function add_action_to_head(){
+			add_action('wp_head', 'addToHead', 1 );
+		// }
+
+		// add_action('acf/init', 'add_action_to_head', 1 );
 
 		function my_custom_script_load(){
 			wp_enqueue_script( 'websquad-cookies-script', plugin_dir_url( __FILE__ ) . '/switch-cookies.js', array( 'jquery' ) );
 		}
-		add_action( 'wp_enqueue_scripts', 'my_custom_script_load' );
+		add_action( 'wp_enqueue_scripts', 'my_custom_script_load', 1 );
 	}
 
 	function activate() {
