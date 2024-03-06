@@ -54,7 +54,7 @@ class SwitchCookies {
 				<div class="cookie-buttons">
 					<button id="cookiebuttonAccept" class="button accepted">'. $cookie_button_1 . '</button>
 					<button id="cookiebuttonDecline" class="button declined">'. $cookie_button_2 . '</button>
-					<span>Powerd by <a href="https://teamswitch.nl" target="_blank">Team Switch</a>.</span>
+					<span>Powered by <a href="https://teamswitch.nl" target="_blank">Team Switch</a>.</span>
 				</div>
 			</div>
 			';
