@@ -101,7 +101,7 @@ class SwitchCookies {
 					"security_storage": consent
 				});
 			</script>
-			<link rel="stylesheet" href="' . plugin_dir_url( __FILE__ ) . '/style.css" type="text/css">
+			<link rel="stylesheet" href="' . plugin_dir_url( __FILE__ ) . '/css/style.css" type="text/css">
 			';
 		}
 
