@@ -9,7 +9,7 @@
 	Plugin name: Switch - Simple Cookie Notice
 	Plugin URI: https://github.com/RLKevin/switch-simple-cookie-notice
 	Description: Simple cookie notice plugin for Wordpress, made by Team Switch Reclamebureau
-	Version: 0.4
+	Version: 0.4.2
 	Author: Team Switch
 	Author URI: https://teamswitch.nl/
 
@@ -29,10 +29,10 @@ class SwitchCookies {
 			$websquad_cookies_settings_options = get_option( 'websquad_cookies_settings_option_name' );
 
 			if (function_exists('icl_t')) {
-				$cookie_title = icl_t( WEBSQUAD_COOKIES_TEXT_DOMAIN, 'Cookie Title 0', $websquad_cookies_settings_options['cookie_title_0'] );
-				$cookie_text = icl_t( WEBSQUAD_COOKIES_TEXT_DOMAIN, 'Cookie Text 0', $websquad_cookies_settings_options['cookie_text_0'] );
-				$cookie_button_1 = icl_t( WEBSQUAD_COOKIES_TEXT_DOMAIN, 'Button Text 1', $websquad_cookies_settings_options['button_text_1'] );
-				$cookie_button_2 = icl_t( WEBSQUAD_COOKIES_TEXT_DOMAIN, 'Button Text 2', $websquad_cookies_settings_options['button_text_2'] );
+				@$cookie_title = icl_t( WEBSQUAD_COOKIES_TEXT_DOMAIN, 'Cookie Title 0', $websquad_cookies_settings_options['cookie_title_0'] );
+				@$cookie_text = icl_t( WEBSQUAD_COOKIES_TEXT_DOMAIN, 'Cookie Text 0', $websquad_cookies_settings_options['cookie_text_0'] );
+				@$cookie_button_1 = icl_t( WEBSQUAD_COOKIES_TEXT_DOMAIN, 'Button Text 1', $websquad_cookies_settings_options['button_text_1'] );
+				@$cookie_button_2 = icl_t( WEBSQUAD_COOKIES_TEXT_DOMAIN, 'Button Text 2', $websquad_cookies_settings_options['button_text_2'] );
 				// $cookie_button_3 = icl_t( WEBSQUAD_COOKIES_TEXT_DOMAIN, 'Button Text 3', $websquad_cookies_settings_options['button_text_3'] );
 			} else {
 				$cookie_title = $websquad_cookies_settings_options['cookie_title_0'];

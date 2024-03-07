@@ -1,35 +1,37 @@
 .cookie-notice {
+	all: unset;
+	box-sizing: border-box;
+	* {
+		box-sizing: border-box;
+	}
 	position: fixed;
-	/* top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
-	bottom: 32px;
-	right: 32px;
+	bottom: 2rem;
+	right: 2rem;
+	max-width: calc(100vmin - 4rem);
 
-	padding: 32px;
-	background-color: #f1f1f1;
-	color: #000;
-	box-shadow: 0 4px 16px #303030;
-	border-radius: 8px;
-
-	width: fit-content;
-	max-width: 320px;
+	width: 20rem;
 	height: fit-content;
+
+	padding: 2rem;
+	background-color: #fefefe;
+	color: #000;
+	box-shadow: 0 4px 16px #30303050;
+	border-radius: 8px;
 
 	display: flex;
 	flex-direction: column;
-	gap: 32px;
+	gap: 2rem;
 
 	z-index: 999;
 
 	img {
-		width: 64px;
-		height: 64px;
-		/* margin-inline: auto; */
+		width: 4rem;
+		height: 4rem;
 	}
 
 	strong {
 		font-size: 24px;
+		line-height: 1.2;
 		margin-bottom: 12px;
 	}
 
@@ -40,7 +42,7 @@
 	div {
 		display: flex;
 		flex-direction: column;
-		gap: 16px;
+		gap: 1rem;
 	}
 
 	.cookie-buttons {

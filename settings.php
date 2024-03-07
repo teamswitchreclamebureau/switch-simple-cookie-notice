@@ -108,6 +108,7 @@ class WebSquadCookiesSettings {
 			$sanitary_values['cookie_title_0'] = $input['cookie_title_0'];
 
 			if (defined('ICL_SITEPRESS_VERSION')) {
+				write_log('Registering string for cookie_title_0');
 				icl_register_string( WEBSQUAD_COOKIES_TEXT_DOMAIN, 'Cookie Title 0', $sanitary_values['cookie_title_0'] );
 			}
 		}
