@@ -5,14 +5,16 @@
 		box-sizing: border-box;
 	}
 	position: fixed;
-	bottom: 2rem;
-	right: 2rem;
+	bottom: 1rem;
+	right: 1rem;
 	max-width: calc(100vmin - 4rem);
+	max-height: calc(100svh - 2rem);
+	overflow-y: scroll;
 
 	width: 20rem;
 	height: fit-content;
 
-	padding: 2rem;
+	padding: 1rem;
 	background-color: #fefefe;
 	color: #000;
 	box-shadow: 0 4px 16px #30303050;
@@ -24,13 +26,23 @@
 
 	z-index: 999;
 
+	&::-webkit-scrollbar{
+		display: none;
+	}
+
+	@media screen and (min-width: 648px){
+		bottom: 2rem;
+		right: 2rem;
+		padding: 2rem;
+	}
+
 	img {
 		width: 4rem;
 		height: 4rem;
 	}
 
 	strong {
-		font-size: 24px;
+		font-size: 20px;
 		line-height: 1.2;
 		margin-bottom: 12px;
 	}
