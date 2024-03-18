@@ -100,6 +100,7 @@ class SwitchCookies {
 					"personalization_storage": consent,
 					"security_storage": "granted"
 				});
+				dataLayer.push({"event": "cookie_consent_update"});
 			</script>
 			<link rel="stylesheet" href="' . plugin_dir_url( __FILE__ ) . '/css/style.css" type="text/css">
 			';

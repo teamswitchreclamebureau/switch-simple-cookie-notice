@@ -6,10 +6,12 @@ jQuery(document).ready(function ($) {
 
 	cookiebuttonAccept.addEventListener('click', function () {
 		consentGranted();
+		dataLayer.push({"event": "cookie_consent_update"});
 	});
 
 	cookiebuttonDecline.addEventListener('click', function () {
 		consentDenied();
+		dataLayer.push({"event": "cookie_consent_update"});
 	});
 
 	if (!getCookie('cookies-ok')) {
