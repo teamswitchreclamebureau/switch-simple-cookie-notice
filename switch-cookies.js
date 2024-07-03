@@ -13,10 +13,11 @@ jQuery(document).ready(function ($) {
 		consentDenied();
 		dataLayer.push({"event": "cookie_consent_update"});
 	});
+	
 
-	if (!getCookie('cookies-ok')) {
-		cookie.classList.remove('disabled');
-	}
+	if (!getCookie('cookies-ok') && !getCookie('cookies-denied')) {
+        cookie.classList.remove('disabled');
+    }
 
 	function updateConsent() {
 		gtag('consent', 'update', {
